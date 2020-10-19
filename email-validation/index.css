@@ -1,0 +1,18 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #ffd900;
+}
+
+.form-group {
+    padding: 200px 200px;
+}
+
+.form-group button{
+    float: right;
+    margin-top: 20px;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Accordion | Vanilla Javascript</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="accordion">
+    	<div class="contentBx">
+    		<div class="label">List One</div>
+    		<div class="content">
+    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    			consequat.</p>
+    		</div>
+    	</div>
+    	<div class="contentBx">
+    		<div class="label">List Two</div>
+    		<div class="content">
+    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    			consequat.</p>
+    		</div>
+    	</div>
+    	<div class="contentBx">
+    		<div class="label">List Three</div>
+    		<div class="content">
+    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    			consequat.</p>
+    		</div>
+    	</div>
+    	<div class="contentBx">
+    		<div class="label">List Four</div>
+    		<div class="content">
+    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    			consequat.</p>
+    		</div>
+    	</div>
+    </div>
+    <script>
+		const acc = document.getElementsByClassName("contentBx");
+		for (i = 0; i < acc.length; i++) {
+		    acc[i].addEventListener("click", function() {
+		        this.classList.toggle("active");
+		    });
+		}
+	</script>
+</body>
+</html>
