@@ -1,0 +1,39 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+
+    background-color: black;
+
+}
+
+h1{
+
+    font-size: 70px;
+    font-family: Candy Cake;
+    text-align: center;
+    line-height: 100vh;
+
+}
+
+span{
+
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    transform: translateY(70px);
+    display: inline-block;
+
+}
+
+span.fade{
+
+    opacity: 1;
+    transform: translateY(0px);
+    color: rgb(112, 112, 250);
+
+}
