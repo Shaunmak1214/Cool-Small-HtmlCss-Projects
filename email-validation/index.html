@@ -13,27 +13,72 @@
   </head>
 <body>
 
-    <h3>Email Validation Form</h3>
+  <!DOCTYPE html>
+  <!-- Created By CodingNepal -->
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <!-- Somehow I got an error, so I comment the title, just uncomment to show -->
+      <!-- <title>Email Validation Check | CodingNepal</title>  -->
+      <link rel="stylesheet" href="style.css">
+      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </head>
+    <body>
+      <div class="content">
+        <header>Email Validation Check in HTML CSS & JavaScript</header>
+        <form action="#">
+          <div class="field">
+            <input onkeyup="check()" id="email" type="text" autocomplete="off" placeholder="Enter Email Address">
+            <div class="icons">
+              <span class="icon1 fas fa-exclamation"></span>
+              <span class="icon2 fas fa-check"></span>
+            </div>
+          </div>
 
-    <form>
+          <div class="error-text">
+            Please Enter Valid Email Address
+          </div>
 
-        <div class="form-group">
+          <button>Submit</button>
+        </form>
+  </div>
+  <script>
 
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <span id="text"></span>
+        const email = document.querySelector("#email");
+        const icon1 = document.querySelector(".icon1");
+        const icon2 = document.querySelector(".icon2");
+        const error = document.querySelector(".error-text");
 
-          <button type="submit" class="btn btn-dark">Submit</button>
+        let regExp = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
-        </div>
+        function check(){
 
-      </form>
+          if(email.value.match(regExp)){
+            email.style.borderColor = "#27ae60";
+            email.style.background = "#eafaf1";
+            icon1.style.display = "none";
+            icon2.style.display = "block";
+            error.style.display = "none";
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+          }else{
+
+            email.style.borderColor = "#e74c3c";
+            email.style.background = "#fceae9";
+            icon1.style.display = "block";
+            icon2.style.display = "none";
+            error.style.display = "block";
+          }
+
+          if(email.value == ""){
+            email.style.borderColor = "lightgrey";
+            email.style.background = "#fff";
+            icon1.style.display = "none";
+            icon2.style.display = "none";
+            error.style.display = "none";
+          }
+
+        }
+      </script>
   
 </body>
 </html>
