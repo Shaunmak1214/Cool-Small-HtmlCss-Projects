@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+.btn {
+  width: 250px;
+  height: 70px;
+  background: #e7c60c;
+  border-radius: 50px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.btn.pressed {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.btn:hover .icon-container {
+  transform: translateX(-50%) translateY(-38px);
+}
+.left-side {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 20px;
+  top: 50%;
+}
+.left-side {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+.icon {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  overflow: hidden;
+}
+.icon.hide {
+  display: none;
+}
+.text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 100px;
+  color: #fff;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
+  height: 25px;
+}
+.text-container.move-up {
+  animation: move-up 0.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes move-up {
+  0% {}
+  100% {
+    transform: translateY(-22px);
+  }
+}
+.icon-container {
+  font-size: 30px;
+  color: #12e2a3;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 10px;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+.rotate {
+  display: none;
+  position: absolute;
+  animation: rotate 1s infinite;
+  
+}
+.rotate.show {
+  display: block;
+}
+.loader {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.btn-green{
+  background: green;
+}
