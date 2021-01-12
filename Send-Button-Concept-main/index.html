@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Button Concepts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #111;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+        }
+
+        .msgbox {
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+            color: #fff;
+            position: relative;
+            display: grid;
+            grid-gap: 15px;
+            overflow: hidden;
+            padding: 10px;
+            transition: all 0.7s ease-in-out;
+        }
+
+        .resize {
+            width: 50px;
+            height: 200px;
+            border-radius: 15px;
+            transform: rotate(90deg);
+            box-shadow: 6px 6px 20px 0px #000000;
+        }
+
+        .items {
+            display: flex;
+            justify-content: center;
+            color: #111;
+            background: #b1ac0bd1;
+            border-radius: 50%;
+            text-align: center;
+            transform: rotate(-90deg);
+            height: 34px;
+            width: 34px;
+            cursor: pointer;
+        }
+
+        .button {
+            background-color: #fff;
+            color: #111;
+            cursor: pointer;
+            font-size: 25px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+            box-shadow: 5px 5px 8px 0px rgb(0 0 0);
+            z-index: 3;
+            transition: all 0.5s cubic-bezier(0.63, 0.18, 0.83, 0.67);
+        }
+
+        .move {
+            width: 40px;
+            top: 78%;
+            height: 40px;
+        }
+
+        span {
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+
+        .one {
+            font-size: 40px;
+            font-weight: bolder;
+            top: 100%;
+            left: -150px;
+            transition: top 1s, left 1s, transform 0.4s ease 0.5s;
+        }
+
+        .one-move {
+            top: 50%;
+            left: 50%;
+            transition: top 1s, left 1s, transform 0.4s ease 0.5s;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .two {
+            transform: translate(-50%, -50%);
+            transition: all 0.8s ease;
+        }
+
+        .send {
+            top: 30%;
+            left: 130%;
+            transition: all 0.8s ease;
+        }
+
+        i {
+            font-weight: normal;
+            font-style: normal;
+            transform: translateY(4px);
+        }
+
+        i:not(.fa-paper-plane) {
+            font-size: 20px;
+            padding: 5px;
+            margin: -2px;
+        }
+
+        .fa-paper-plane {
+            transform: rotate(360deg);
+        }
+
+        .fas:hover:not(.fa-paper-plane) {
+            transform: scale(1.2);
+            transition: transform 0.5s linear;
+            background: #b1ac0bd1;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            height: 34px;
+            width: 34px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="msgbox" id="msg">
+            <div class="items items1">
+                <i class="fas fa-camera-retro"></i>
+            </div>
+            <div class="items items2">
+                <i class="fas fa-file"></i>
+            </div>
+            <div class="items items3">
+                <i class="fas fa-microphone"></i>
+            </div>
+            <div class="items items4">
+                <i class="fas fa-sms"></i>
+            </div>
+        </div>
+        <div class="button" id="btn">
+            <div class="btn-wrapper">
+                <span class="one btn" id="plus">+</span>
+                <span class="two btn" id="sendmsg">
+                    <i class="fas fa-paper-plane"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    let btnOne = document.getElementById('btn');
+    let snd = document.getElementById('sendmsg');
+    let close = document.getElementById('plus');
+
+    btnOne.addEventListener("click", function () {
+        btnOne.classList.toggle("move");
+        msg.classList.toggle("resize");
+        snd.classList.toggle('send');
+        close.classList.toggle('one-move');
+    });
+</script>
+
+<script src="https://kit.fontawesome.com/dd8c49730d.js" crossorigin="anonymous"></script>
+
+</html>

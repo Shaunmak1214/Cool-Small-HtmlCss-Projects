@@ -1,0 +1,273 @@
+:root {
+--tab-background:rgb(0, 0, 0);
+--background:rgb(255 158 158 / 1);
+--stroke-color:rgb(255, 255, 255);
+}
+
+body {
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+margin: 0;
+padding: 20px;
+box-sizing: border-box;
+background: var(--background);
+}
+
+svg:not(.twitter-icon) {
+color: var(--stroke-color);
+height: inherit;
+fill: var(--tab-background);
+stroke: currentColor;
+stroke-width: 1.4;
+stroke-linecap: round;
+stroke-linejoin: round;
+pointer-events: none;
+position: absolute;
+}
+
+#container {
+--r: 50px;
+min-width: 400px;
+width: 400px;
+max-width: 400px;
+height: 380px;
+display: flex;
+align-items: flex-end;
+border-radius: 2px  2px var(--r)  var(--r) ;
+overflow: hidden;
+}
+
+#tab {
+background: var(--tab-background);
+width: inherit;
+height: 120px;
+border-radius: inherit;
+padding: 20px 80px;
+box-sizing: border-box;
+position: relative;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.icon {
+width: 38px;
+height: 38px;
+position: relative;
+z-index: 5;
+cursor: pointer;
+}
+
+.icon.active.box .l1, .icon.active.home .l1, .icon.active.calender .l1 {
+--in: -252px;
+animation: in 0.4s 1.1s forwards, landed 0.5s 1.5s forwards;
+}
+
+.icon.active.box .l2 {
+--in: -212px;
+}
+.icon.active.box .l3 {
+--in: -200px;
+}
+.icon.active.home .l2 {
+--in: -216px;
+animation: in 0.26s 1.14s forwards, landed 0.5s 1.5s forwards;
+}
+
+.icon.active.box .l2, .icon.active.box .l3, .icon.active.calender .l2, .icon.active.calender .l3 {
+animation: in 0.3s 1.1s forwards, landed 0.5s 1.5s forwards;
+}
+
+.icon.active.calender .l2 {
+--in: -190px;
+}
+
+.icon.active.calender .l3 {
+--in: -214px;
+}
+
+.icon.active .l1 svg {
+animation: out 0.1s 1s forwards, in_again 0.2s 1.6s forwards;
+}
+
+.icon:not(.active) {
+animation: back 0.2s forwards;
+}
+
+@keyframes in {
+50% {
+transform: translateY(calc(var(--in) + 10px));
+}
+100% {
+transform: translateY(var(--in));
+}
+}
+
+@keyframes out {
+100% {
+fill: transparent;
+}
+}
+
+@keyframes landed {
+70% {
+transform: translateY(-55px);
+}
+100% {
+transform: translateY(-59px);
+}
+}
+
+@keyframes in_again {
+100% {
+fill: var(--tab-background);
+}
+}
+
+@keyframes back {
+0% {
+transform: translateY(-59px);
+}
+100% {
+transform: translateY(0px);
+}
+}
+
+.box .l2 svg {
+fill: transparent;
+}
+
+.home .l2 svg {
+transform: translateY(-1px);
+fill: transparent;
+}
+
+.circle {
+--s: 86px;
+width: var(--s);
+height: var(--s);
+border-radius: var(--s);
+transform: translateX(0);
+position: absolute;
+top: -34%;
+left: 56px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.circle[data-active="0"] {
+transform: translateX(0);
+}
+
+.circle[data-active="1"] {
+transform: translateX(101px);
+}
+
+.circle[data-active="2"] {
+transform: translateX(202px);
+}
+
+.circle[data-animating="true"] {
+animation: landY 0.5s forwards, 
+moveX 0.5s 0.5s forwards,
+jumpY 0.5s 1s forwards, 
+landedY 0.5s 1.5s forwards;
+}
+
+.circle[data-animating="true"] > .circle-inner::before {
+transform: scale(0);
+animation: scale 0.3s 1.2s forwards;
+}
+
+@keyframes landY {
+100% {
+top: 80%;
+}
+}
+
+@keyframes moveX {
+100% {
+transform: translateX(var(--x));
+}
+}
+
+@keyframes jumpY {
+100% {
+top: -62%;
+}
+}
+
+@keyframes landedY {
+70% {
+top: -30%;
+}
+100% {
+top: -34%;
+}
+}
+
+.circle-inner {
+width: inherit;
+height: inherit;
+border-radius: inherit;
+}
+
+.circle-inner::before, .circle-inner::after {
+content: "";
+display: inline-block;
+width: inherit;
+height: inherit;
+border-radius: inherit;
+transform-origin: center center;
+position: absolute;
+}
+
+.circle-inner::before {
+background: var(--tab-background);
+opacity: 0.1;
+transform: scale(1.4);
+}
+
+.circle-inner::after {
+background: var(--stroke-color);
+}
+
+@keyframes scale {
+0% {
+transform: scale(1);
+}
+
+100% {
+transform: scale(1.4);
+}
+}
+
+.abs-twitter {
+position: fixed;
+right: calc(24px + .6vw);
+top: calc(22px + .6vw);
+transform: translate(-8px, 4px);
+opacity: 0;
+transition: .3s ease-in;
+}
+
+.abs-twitter--show {
+transform: translate(0, 0);
+opacity: 1;
+animation: birdie 1s .8s linear infinite;
+}
+
+@keyframes birdie {
+13% {
+transform: rotate(14deg);
+}
+26% {
+transform: rotate(28deg);
+}
+100% {
+transform: rotate(0deg);
+}
+}

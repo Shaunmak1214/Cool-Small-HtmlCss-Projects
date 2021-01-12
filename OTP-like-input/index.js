@@ -1,5 +1,5 @@
 $('.digit-group').find('input').each(function() {
-	$(this).attr('maxlength', 1);
+	$(this).attr('maxlength', 4);
 	$(this).on('keyup', function(e) {
 		var parent = $($(this).parent());
 		
