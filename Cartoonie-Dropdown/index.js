@@ -19,5 +19,6 @@ items.forEach((item) => {
             _item.classList.remove('selected')
         })
         evt.target.classList.add('selected')
+        dropdown.classList.remove('open')
     })
 })
